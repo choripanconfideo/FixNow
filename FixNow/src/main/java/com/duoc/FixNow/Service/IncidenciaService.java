@@ -28,12 +28,7 @@ public class IncidenciaService {
         return incidenciaRepository.save(incidencia);
     }
 
-    public Incidencia obtenerPorId(Long id) {
-
-        return incidenciaRepository.findById(id).orElse(null);
-    }
-
-    public Optional<Incidencia> actualizarIncidencia(Long id, Incidencia incidenciaActualizada) {
+    public Optional<Incidencia> actualizar(Long id, Incidencia incidenciaActualizada) {
         // Utilizacion de una arrow Function para mapear directamente la entidad con los valores de sus atributos actualizados
         return incidenciaRepository.findById(id).map(incidencia ->{
             incidencia.setTitulo(incidenciaActualizada.getTitulo());
@@ -44,7 +39,7 @@ public class IncidenciaService {
             return incidenciaRepository.save(incidencia);
         });
     }
-    public Optional<Incidencia> buscarIncidenciaPorId(Long id) {
+    public Optional<Incidencia> obtenerPorId(Long id) {
         return incidenciaRepository.findById(id);
     }
 
